@@ -1,6 +1,6 @@
 {
     "name": "@cinema-platform/contracts",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Protobuf definitions and generated TypeScript types",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -9,6 +9,7 @@
         "generate": "protoc -I ./proto ./proto/*.proto --ts_proto_out=./gen --ts_proto_opt=nestJs=true,package=omit"
     },
     "files": [
+        "dist",
         "proto",
         "gen"
     ],
