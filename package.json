@@ -1,8 +1,11 @@
 {
     "name": "@cinema-platform/contracts",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Protobuf definitions and generated TypeScript types",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "scripts": {
+        "build": "tsc -p tsconfig.build.json",
         "generate": "protoc -I ./proto ./proto/*.proto --ts_proto_out=./gen --ts_proto_opt=nestJs=true,package=omit"
     },
     "files": [
@@ -16,5 +19,9 @@
         "@nestjs/microservices": "^11.2.1",
         "rxjs": "^7.8.2",
         "ts-proto": "^2.12.1"
+    },
+    "devDependencies": {
+        "@types/node": "^26.2.0",
+        "typescript": "~5.9.3"
     }
 }
