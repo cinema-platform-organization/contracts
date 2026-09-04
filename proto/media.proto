@@ -30,7 +30,7 @@ message GetRequest {
 
 message GetResponse {
     bytes data = 1;
-  string content_type = 2;
+    string content_type = 2;
 }
 
 message DeleteRequest {
