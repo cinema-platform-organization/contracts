@@ -31,7 +31,7 @@ message ListHallsRequest {
 }
 
 message ListHallsResponse {
-    repeated Hall hall = 1;
+    repeated Hall halls = 1;
 }
 
 message Hall {
