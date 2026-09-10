@@ -5,6 +5,7 @@ package payment.v1;
 service PaymentService {
     rpc CreatePayment (CreatePaymentRequest) returns (CreatePaymentResponse);
     rpc ProcessPaymentEvent (ProcessPaymentEventRequest) returns (ProcessPaymentEventResponse);
+    rpc RefundPayment (RefundPaymentRequest) returns (RefundPaymentResponse);
 }
 
 message CreatePaymentRequest {
@@ -31,6 +32,14 @@ message ProcessPaymentEventRequest {
 }
 
 message ProcessPaymentEventResponse {
+    bool ok = 1;
+}
+
+message RefundPaymentRequest {
+    string payment_id = 1;
+}
+
+message RefundPaymentResponse {
     bool ok = 1;
 }
 
