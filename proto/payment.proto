@@ -4,6 +4,7 @@ package payment.v1;
 
 service PaymentService {
     rpc CreatePayment (CreatePaymentRequest) returns (CreatePaymentResponse);
+    rpc VerifyPaymentCallback (RawCallbackRequest) returns (ProcessPaymentEventResponse);
     rpc ProcessPaymentEvent (ProcessPaymentEventRequest) returns (ProcessPaymentEventResponse);
     rpc RefundPayment (RefundPaymentRequest) returns (RefundPaymentResponse);
 }
@@ -18,6 +19,11 @@ message CreatePaymentRequest {
 
 message CreatePaymentResponse {
     string url = 1;
+}
+
+message RawCallbackRequest {
+    string data = 1;
+    string signature = 2;
 }
 
 message ProcessPaymentEventRequest {
