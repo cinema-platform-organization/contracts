@@ -68,12 +68,6 @@ message BookingSeatInfo {
     int32 number = 3;
 }
 
-message BookingSeatInfo {
-    string id = 1;
-    int32 row = 2;
-    int32 number = 3;
-}
-
 message BookingMovieInfo {
     string id = 1;
     string title = 2;
