@@ -13,10 +13,12 @@ message ListMoviesRequest {
     string category = 1;
     bool random = 2;
     int32 limit = 3;
+    int32 page = 4;
 }
 
 message ListMoviesResponse {
     repeated Movie movies = 1;
+    int32 total = 2;
 }
 
 message GetMovieRequest {

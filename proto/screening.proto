@@ -23,19 +23,25 @@ message CreateScreeningResponse {
 message GetScreeningsRequest {
     optional string theater_id = 1;
     optional string date = 2;
+    int32 limit = 3;
+    int32 page = 4;
 }
 
 message GetScreeningsResponse {
     repeated Screening screenings = 1;
+    int32 total = 2;
 }
 
 message GetScreeningsByMovieRequest {
     string movie_id = 1;
     optional string date = 2;
+    int32 limit = 3;
+    int32 page = 4;
 }
 
 message GetScreeningsByMovieResponse {
     repeated Screening screenings = 1;
+    int32 total = 2;
 }
 
 message GetScreeningRequest {
