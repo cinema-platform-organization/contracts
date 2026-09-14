@@ -42,7 +42,7 @@ message ProcessPaymentEventResponse {
 }
 
 message RefundPaymentRequest {
-    string payment_id = 1;
+    string booking_id = 1;
 }
 
 message RefundPaymentResponse {
