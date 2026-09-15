@@ -6,10 +6,49 @@ import "google/protobuf/empty.proto";
 
 service CategoryService {
     rpc GetAllCategories (google.protobuf.Empty) returns (GetAllCategoriesResponse);
+    rpc GetCategory (GetCategoryRequest) returns (GetCategoryResponse);
+    rpc CreateCategory (CreateCategoryRequest) returns (CreateCategoryResponse);
+    rpc UpdateCategory (UpdateCategoryRequest) returns (UpdateCategoryResponse);
+    rpc DeleteCategory (DeleteCategoryRequest) returns (DeleteCategoryResponse);
 }
 
 message GetAllCategoriesResponse {
     repeated Category categories = 1;
+}
+
+message GetCategoryRequest {
+    string id = 1;
+}
+
+message GetCategoryResponse {
+    Category category = 1;
+}
+
+message CreateCategoryRequest {
+    string title = 1;
+    optional string slug = 2;
+}
+
+message CreateCategoryResponse {
+    Category category = 1;
+}
+
+message UpdateCategoryRequest {
+    string id = 1;
+    optional string title = 2;
+    optional string slug = 3;
+}
+
+message UpdateCategoryResponse {
+    Category category = 1;
+}
+
+message DeleteCategoryRequest {
+    string id = 1;
+}
+
+message DeleteCategoryResponse {
+    bool ok = 1;
 }
 
 message Category {

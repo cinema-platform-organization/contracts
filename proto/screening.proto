@@ -11,6 +11,7 @@ service ScreeningService {
     rpc HasUpcomingScreeningsForTheater (HasUpcomingScreeningsForTheaterRequest) returns (HasUpcomingScreeningsResponse);
     rpc UpdateScreening (UpdateScreeningRequest) returns (UpdateScreeningResponse);
     rpc DeleteScreening (DeleteScreeningRequest) returns (DeleteScreeningResponse);
+    rpc HasUpcomingScreeningsForMovie (HasUpcomingScreeningsForMovieRequest) returns (HasUpcomingScreeningsResponse);
 }
 
 message CreateScreeningRequest {
@@ -86,6 +87,10 @@ message DeleteScreeningRequest {
 
 message DeleteScreeningResponse {
     bool ok = 1;
+}
+
+message HasUpcomingScreeningsForMovieRequest {
+    string movie_id = 1;
 }
 
 message Screening {
