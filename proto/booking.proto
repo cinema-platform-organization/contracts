@@ -8,6 +8,7 @@ service BookingService {
     rpc ConfirmBooking (ConfirmBookingRequest) returns (ConfirmBookingResponse);
     rpc CancelBooking (CancelBookingRequest) returns (CancelBookingResponse);
     rpc ListReservedSeats (ListReservedSeatsRequest) returns (ListReservedSeatsResponse);
+    rpc ExistsForScreening (ExistsForScreeningRequest) returns (ExistsForScreeningResponse);
 }
 
 message GetUserBookingsRequest {
@@ -63,6 +64,14 @@ message ListReservedSeatsRequest {
 message ListReservedSeatsResponse {
     bool ok = 1;
     repeated string reserved_seat_ids = 2;
+}
+
+message ExistsForScreeningRequest {
+    string screening_id = 1;
+}
+
+message ExistsForScreeningResponse {
+    bool exists = 1;
 }
 
 message BookingSeatInfo {

@@ -9,6 +9,8 @@ service ScreeningService {
     rpc GetScreening (GetScreeningRequest) returns (GetScreeningResponse);
     rpc HasUpcomingScreeningsForHall (HasUpcomingScreeningsForHallRequest) returns (HasUpcomingScreeningsResponse);
     rpc HasUpcomingScreeningsForTheater (HasUpcomingScreeningsForTheaterRequest) returns (HasUpcomingScreeningsResponse);
+    rpc UpdateScreening (UpdateScreeningRequest) returns (UpdateScreeningResponse);
+    rpc DeleteScreening (DeleteScreeningRequest) returns (DeleteScreeningResponse);
 }
 
 message CreateScreeningRequest {
@@ -54,6 +56,38 @@ message GetScreeningResponse {
     Screening screening = 1;
 }
 
+message HasUpcomingScreeningsForHallRequest {
+    string hall_id = 1;
+}
+
+message HasUpcomingScreeningsForTheaterRequest {
+    string theater_id = 1;
+}
+
+message HasUpcomingScreeningsResponse {
+    bool has_screenings = 1;
+}
+
+message UpdateScreeningRequest {
+    string id = 1;
+    optional string movie_id = 2;
+    optional string hall_id = 3;
+    optional string start_at = 4;
+    optional string end_at = 5;
+}
+
+message UpdateScreeningResponse {
+    Screening screening = 1;
+}
+
+message DeleteScreeningRequest {
+    string id = 1;
+}
+
+message DeleteScreeningResponse {
+    bool ok = 1;
+}
+
 message Screening {
     string id = 1;
     string start_at = 2;
@@ -89,16 +123,4 @@ message Hall {
 message SeatType {
     string type = 1;
     int32 price = 2;
-}
-
-message HasUpcomingScreeningsForHallRequest {
-    string hall_id = 1;
-}
-
-message HasUpcomingScreeningsForTheaterRequest {
-    string theater_id = 1;
-}
-
-message HasUpcomingScreeningsResponse {
-    bool has_screenings = 1;
 }
