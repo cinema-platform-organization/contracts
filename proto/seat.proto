@@ -19,7 +19,7 @@ message GetSeatResponse {
 
 message ListSeatsRequest {
     string hall_id = 1;
-    string screening_id = 2;
+    optional string screening_id = 2;
 }
 
 message ListSeatsResponse {
