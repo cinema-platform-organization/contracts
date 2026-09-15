@@ -7,6 +7,8 @@ service ScreeningService {
     rpc GetScreenings (GetScreeningsRequest) returns (GetScreeningsResponse);
     rpc GetScreeningsByMovie (GetScreeningsByMovieRequest) returns (GetScreeningsByMovieResponse);
     rpc GetScreening (GetScreeningRequest) returns (GetScreeningResponse);
+    rpc HasUpcomingScreeningsForHall (HasUpcomingScreeningsForHallRequest) returns (HasUpcomingScreeningsResponse);
+    rpc HasUpcomingScreeningsForTheater (HasUpcomingScreeningsForTheaterRequest) returns (HasUpcomingScreeningsResponse);
 }
 
 message CreateScreeningRequest {
@@ -87,4 +89,16 @@ message Hall {
 message SeatType {
     string type = 1;
     int32 price = 2;
+}
+
+message HasUpcomingScreeningsForHallRequest {
+    string hall_id = 1;
+}
+
+message HasUpcomingScreeningsForTheaterRequest {
+    string theater_id = 1;
+}
+
+message HasUpcomingScreeningsResponse {
+    bool has_screenings = 1;
 }

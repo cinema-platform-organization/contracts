@@ -6,6 +6,8 @@ service HallService {
     rpc CreateHall (CreateHallRequest) returns (CreateHallResponse);
     rpc GetHall (GetHallRequest) returns (GetHallResponse);
     rpc ListHallsByTheater (ListHallsRequest) returns (ListHallsResponse);
+    rpc UpdateHall (UpdateHallRequest) returns (UpdateHallResponse);
+    rpc DeleteHall (DeleteHallRequest) returns (DeleteHallResponse);
 }
 
 message CreateHallRequest {
@@ -32,6 +34,23 @@ message ListHallsRequest {
 
 message ListHallsResponse {
     repeated Hall halls = 1;
+}
+
+message UpdateHallRequest {
+    string id = 1;
+    optional string name = 2;
+}
+
+message UpdateHallResponse {
+    Hall hall = 1;
+}
+
+message DeleteHallRequest {
+    string id = 1;
+}
+
+message DeleteHallResponse {
+    bool ok = 1;
 }
 
 message Hall {

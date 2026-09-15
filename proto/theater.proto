@@ -8,6 +8,8 @@ service TheaterService {
     rpc ListTheaters (google.protobuf.Empty) returns (ListTheatersResponse);
     rpc GetTheater (GetTheaterRequest) returns (GetTheaterResponse);
     rpc CreateTheater (CreateTheaterRequest) returns (CreateTheaterResponse);
+    rpc UpdateTheater (UpdateTheaterRequest) returns (UpdateTheaterResponse);
+    rpc DeleteTheater (DeleteTheaterRequest) returns (DeleteTheaterResponse);
 }
 
 message ListTheatersResponse {
@@ -29,6 +31,23 @@ message CreateTheaterRequest {
 
 message CreateTheaterResponse {
     Theater theater = 1;
+}
+message UpdateTheaterRequest {
+    string id = 1;
+    optional string name = 2;
+    optional string address = 3;
+}
+
+message UpdateTheaterResponse {
+    Theater theater = 1;
+}
+
+message DeleteTheaterRequest {
+    string id = 1;
+}
+
+message DeleteTheaterResponse {
+    bool ok = 1;
 }
 
 message Theater {

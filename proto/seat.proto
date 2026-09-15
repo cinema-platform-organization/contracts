@@ -5,6 +5,8 @@ package seat.v1;
 service SeatService {
     rpc GetSeat (GetSeatRequest) returns (GetSeatResponse);
     rpc ListSeatsByHall (ListSeatsRequest) returns (ListSeatsResponse);
+    rpc UpdateSeat (UpdateSeatRequest) returns (UpdateSeatResponse);
+    rpc DeleteSeat (DeleteSeatRequest) returns (DeleteSeatResponse);
 }
 
 message GetSeatRequest {
@@ -22,6 +24,24 @@ message ListSeatsRequest {
 
 message ListSeatsResponse {
     repeated Seat seats = 1;
+}
+
+message UpdateSeatRequest {
+    string id = 1;
+    optional int32 price = 2;
+    optional string type = 3;
+}
+
+message UpdateSeatResponse {
+    Seat seat = 1;
+}
+
+message DeleteSeatRequest {
+    string id = 1;
+}
+
+message DeleteSeatResponse {
+    bool ok = 1;
 }
 
 message Seat {
