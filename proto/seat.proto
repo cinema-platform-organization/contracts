@@ -49,7 +49,7 @@ message Seat {
     int32 row = 2;
     int32 number = 3;
     int32 price = 4;
-    string status = 5;
+    optional string status = 5;
     string type = 6;
     string hall_id = 8;
 }
